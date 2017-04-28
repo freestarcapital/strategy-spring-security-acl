@@ -41,6 +41,10 @@ public class AclElasticsearchRepositoryFactoryBean<T extends Repository<S, ID>, 
   @Resource
   private AclFilterProvider filterProvider;
 
+  public AclElasticsearchRepositoryFactoryBean(Class<? extends T> repositoryInterface) {
+    super(repositoryInterface);
+  }
+
   public void setElasticsearchOperations(ElasticsearchOperations operations) {
     super.setElasticsearchOperations(operations);
     this.operations = operations;

@@ -31,6 +31,7 @@ import com.github.lothar.security.acl.sample.SampleApplication;
 import com.github.lothar.security.acl.sample.domain.Customer;
 
 @RunWith(SpringRunner.class)
+@Ignore
 @SpringBootTest(classes = SampleApplication.class)
 public class CustomerSearchRepositoryTest {
 

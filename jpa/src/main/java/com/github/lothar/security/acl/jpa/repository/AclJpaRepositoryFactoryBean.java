@@ -51,6 +51,11 @@ public class AclJpaRepositoryFactoryBean<T extends Repository<S, ID>, S, ID exte
   @Resource
   private JpaSpecProvider<Object> jpaSpecProvider;
 
+  public AclJpaRepositoryFactoryBean(Class<? extends T> repositoryInterface, JpaSpecProvider<Object> jpaSpecProvider) {
+    super(repositoryInterface);
+    this.jpaSpecProvider = jpaSpecProvider;
+  }
+
   protected RepositoryFactorySupport createRepositoryFactory(EntityManager entityManager) {
     return new Factory(entityManager);
   }
