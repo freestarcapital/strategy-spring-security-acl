@@ -111,12 +111,6 @@
 		</pluginManagement>
 		<plugins>
 			<plugin>
-				<artifactId>maven-deploy-plugin</artifactId>
-				<configuration>
-					<altDeploymentRepository>internal.repo::default::file://${project.build.directory}/mvn-repo</altDeploymentRepository>
-				</configuration>
-			</plugin>
-			<plugin>
 				<groupId>com.github.github</groupId>
 				<artifactId>site-maven-plugin</artifactId>
 				<version>0.11</version>
@@ -193,13 +187,18 @@
 		</developer>
 	</developers>
 
-	<distributionManagement>
-		<repository>
-			<id>internal.repo</id>
-			<name>Temporary Staging Repository</name>
-			<url>file://${project.build.directory}/mvn-repo</url>
-		</repository>
-	</distributionManagement>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>freestar-snapshots</name>
+            <url>https://freestar.jfrog.io/freestar/libs-snapshot-local</url>
+        </snapshotRepository>
+        <repository>
+            <id>central</id>
+            <name>freestar-releases</name>
+            <url>https://freestar.jfrog.io/freestar/libs-release-local</url>
+        </repository>
+    </distributionManagement>
 
 	<ciManagement>
 		<url>https://travis-ci.org/lordlothar99/strategy-spring-security-acl</url>
